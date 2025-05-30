@@ -105,3 +105,55 @@
         }
     }
 }
+
+.hero__categories{
+    position: relative;
+
+    .hero__categories_all{
+        background: #8fbc8f;
+        padding: 15px 25px 15px 40px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: #fff;
+    
+    
+        svg{
+            font-size: 16px;
+            margin-right: 5px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+
+    ul{
+        border: 1px solid #ededed;
+        position: absolute;
+        width: 100%;
+        opacity: 1;
+        background: #fff;
+        transition: all 0.2s;
+        li{
+            a{
+                text-decoration: none;
+                background-color: transparent;
+                font-size: 16px;
+                color: #333;
+                line-height: 30px;
+                padding-left: 40px;
+            }
+            list-style: none;
+            &:hover{
+                background: #c5c2c2;
+
+                a{
+                    color: #333;
+                }
+            }
+        }
+
+        &.hidden{
+            opacity: 0;
+        }
+    }
+}
