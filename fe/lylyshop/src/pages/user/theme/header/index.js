@@ -2,6 +2,7 @@ import { memo, useState } from "react";
 import "./style.scss";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 import { ROUTERS } from "utils/router";
 import { CiBoxList } from "react-icons/ci";
 
@@ -122,7 +123,35 @@ function Header() {
               </ul>
             )}
           </div>
-          <div className="col-lg-9"></div>
+          <div className="col-lg-9 hero__search_container">
+            <div className="hero__search">
+              <div className="hero__search_form">
+                <form>
+                  <input type="text" placeholder="Bạn đang tìm gì?" />
+                  <button type="submit">Tìm kiếm</button>
+                </form>
+              </div>
+              <div className="hero__search_phone">
+                <div className="hero__search_phone_icon">
+                  <FaPhoneAlt />
+                </div>
+                <div className="hero__search_phone_text">
+                  <p>0652.258.369</p>
+                  <span>Hỗ trợ 24/7</span>
+                </div>
+              </div>
+            </div>
+            <div className="hero__item">
+              <div className="hero__text">
+                <span>Trái cây tươi</span>
+                <h2>Rau quả <br /> sạch 100%</h2>
+                <p>Miễn phí giao hàng tận nơi</p>
+                <Link to="" className="primary-btn">
+                  Mua ngay
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -41,6 +41,11 @@ html, body{
     max-width: 50%;
 }
 
+.col-lg-9{
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
 .button-submit{
     font-style: 14px;
     color: #fff;

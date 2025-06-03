@@ -1,3 +1,5 @@
+$bannerImg: "/assets/user/img/hero/banner.jpg";
+
 .header__top {
   background: #f5f5f5;
 }
@@ -154,6 +156,135 @@
 
         &.hidden{
             opacity: 0;
+        }
+    }
+
+}
+
+.hero__search_container{
+
+    .hero__search_form{
+        width: 610px;
+        height: 50px;
+        float: left;
+        padding-left: 15px;
+        margin-bottom: 15px;
+        
+        form{
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    input{
+        border: none;
+        height: 48px;
+        font-size: 16px;
+        color: #ededed;
+        padding-left: 20px;
+        border: 1px solid #ededed;
+        width: 70%;
+
+        :focus{
+            outline: none;
+            border: none;
+        }
+    }
+
+    button{
+        font-size: 14px;
+        color: #ededed;
+        font-weight: 800;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 16px 30px 17px;
+        background: #8fbc8f;
+        border: none;
+        height: 100%;
+    }
+
+    .hero__search_phone{
+        display: flex;
+        align-items: center;
+
+        .hero__search_phone_icon{
+            font-size: 25px;
+            padding: 10px;
+            background: #f5f5f5;
+            text-align: center;
+            border-radius: 50%;
+            float: left;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #32cd32;
+        }
+
+        .hero__search_phone_text{
+            display: inline-block;
+
+            p{
+                color: #333;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            span{
+                color: #6f6f6f;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .hero__item{
+        background-image: url($bannerImg);
+        background-size: cover;
+        height: 410px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-left: 15px;
+
+        .hero__text{
+            padding-left: 75px;
+
+            span{
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 4px;
+                color: #32cd32;
+            }
+
+            h2{
+                font-size: 45px;
+                text-transform: uppercase;
+                font-weight: 700;
+                line-height: 52px;
+                color: #ededed;
+                margin: 10px 0;
+            }
+
+            p{
+                font-size: 16px;
+                color: #ededed;
+                font-weight: 400;
+                line-height: 26px;
+                margin: 0 0 15px 0;
+            }
+
+            a{
+                display: inline-block;
+                font-size: 14px;
+                padding: 10px 28px 10px;
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 700;
+                background: #32cd32;
+                letter-spacing: 2px; //tăng khoảng cách giữa các ký tự
+                text-decoration: none;
+            }
         }
     }
 }
