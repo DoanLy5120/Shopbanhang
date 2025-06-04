@@ -52,7 +52,7 @@ function Footer() {
               <h4>Khuyến mãi & Ưu đãi</h4>
               <p>Đăng ký nhận thông tin tại đây</p>
               <form action="#">
-                <div className="input">
+                <div className="input-group">
                   <input type="text" placeholder="Nhập email"/>
                   <button type="submit" className="button-submit">
                     Đăng ký

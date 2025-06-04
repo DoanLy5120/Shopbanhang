@@ -164,7 +164,7 @@ $bannerImg: "/assets/user/img/hero/banner.jpg";
 .hero__search_container{
 
     .hero__search_form{
-        width: 610px;
+        width: 680px;
         height: 50px;
         float: left;
         padding-left: 15px;
@@ -205,7 +205,7 @@ $bannerImg: "/assets/user/img/hero/banner.jpg";
 
     .hero__search_phone{
         display: flex;
-        align-items: center;
+        float: right;
 
         .hero__search_phone_icon{
             font-size: 25px;

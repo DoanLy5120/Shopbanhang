@@ -7,7 +7,7 @@ import { ROUTERS } from "utils/router";
 import { CiBoxList } from "react-icons/ci";
 
 function Header() {
-  const [isShow, setIsShow] = useState(false); // chỉ xuất hiện danh sách khi bằng true
+  const [isShow, setIsShow] = useState(true); // chỉ xuất hiện danh sách khi bằng true
 
   const [menus, setMenus] = useState([
     {
