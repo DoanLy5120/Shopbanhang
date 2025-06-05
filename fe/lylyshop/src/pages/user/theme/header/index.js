@@ -5,6 +5,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { ROUTERS } from "utils/router";
 import { CiBoxList } from "react-icons/ci";
+import {formatter} from "utils/formatter";
+
 
 function Header() {
   const [isShow, setIsShow] = useState(true); // chỉ xuất hiện danh sách khi bằng true
@@ -79,7 +81,7 @@ function Header() {
           <div className="col-xl-3">
             <div className="header__cart">
               <div className="header__cart_price">
-                <span>100.123 đ</span>
+                <span>{formatter(100123)}</span>
               </div>
               <ul>
                 <li>
