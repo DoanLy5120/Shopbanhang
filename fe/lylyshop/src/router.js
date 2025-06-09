@@ -3,6 +3,7 @@ import HomePages from "./pages/user/homePages";
 import { ROUTERS } from "./utils/router";
 import MasterLayout from "./pages/user/theme/masterLayout";
 import ProfilePage from "./pages/user/profilePage";
+import ProductPage from "pages/user/productPage";
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -13,6 +14,10 @@ const renderUserRouter = () => {
     {
       path: ROUTERS.USER.PROFILE,
       component: <ProfilePage />,
+    },
+    {
+      path: ROUTERS.USER.PRODUCT,
+      component: <ProductPage />,
     },
   ];
 

@@ -5,10 +5,7 @@ import "./style.scss";
 import { render } from "@testing-library/react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { FaEye } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { formatter } from "utils/formatter";
+import ProductCard from "component/ProductCard";
 
 function HomePage() {
   // ảnh của categories
@@ -180,27 +177,7 @@ function HomePage() {
       data[key].products.forEach((item, j) => {
         tabPanel.push(
           <div key={j} className="col-lg-3">
-            <div className="featured__item">
-              <div
-                className="featured__item_pic"
-                style={{ backgroundImage: `url(${item.img})` }}
-              >
-                <ul className="featured__item_pic_hover">
-                  <li>
-                    <FaEye />
-                  </li>
-                  <li>
-                    <FaShoppingCart />
-                  </li>
-                </ul>
-              </div>
-              <div className="featured__item_text">
-                <h6>
-                  <Link to="">{item.name}</Link>
-                </h6>
-                <h5>{formatter(item.price)}</h5>
-              </div>
-            </div>
+            <ProductCard name={item.name} img={item.img} price={item.price}/>
           </div>
         );
       });

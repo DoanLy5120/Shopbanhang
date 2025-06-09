@@ -1,53 +1,41 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import "./style.scss";
-import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaPhoneAlt } from "react-icons/fa";
-import { ROUTERS } from "utils/router";
+import { Link, useLocation } from "react-router-dom";
+import { FaShoppingCart, FaPhoneAlt } from "react-icons/fa";
 import { CiBoxList } from "react-icons/ci";
-import {formatter} from "utils/formatter";
+import { ROUTERS } from "utils/router";
+import { formatter } from "utils/formatter";
+
+export  const categories = ["Thịt tươi", "Rau củ", "Nước ép", "Trái cây", "Hải sản"];
 
 
 function Header() {
-  const [isShow, setIsShow] = useState(true); // chỉ xuất hiện danh sách khi bằng true
+  const location = useLocation();
+  const isHomePage = location.pathname === "/" || location.pathname === "/home";
 
-  const [menus, setMenus] = useState([
-    {
-      name: "Trang chủ",
-      path: ROUTERS.USER.HOME,
-    },
-    {
-      name: "Cửa hàng",
-      path: ROUTERS.USER.PRODUCT,
-    },
+  const [isShowCategory, setIsShowCategory] = useState(isHomePage); // xổ xuống hay không
+
+  // cập nhật trạng thái xổ khi route thay đổi
+  useEffect(() => {
+    setIsShowCategory(isHomePage); // nếu là trang chủ thì mở menu, ngược lại đóng
+  }, [location.pathname]);
+
+  const menus = [
+    { name: "Trang chủ", path: ROUTERS.USER.HOME },
+    { name: "Cửa hàng", path: ROUTERS.USER.PROFILE },
     {
       name: "Sản phẩm",
-      path: "",
-      isShowSubMenu: false,
+      path: ROUTERS.USER.PRODUCT,
       child: [
-        {
-          name: "Thịt",
-          path: "",
-        },
-        {
-          name: "Rau củ",
-          path: "",
-        },
-        {
-          name: "Thức ăn nhanh",
-          path: "",
-        },
+        { name: "Thịt", path: "" },
+        { name: "Rau củ", path: "" },
+        { name: "Trái cây", path: "" },
       ],
     },
-    {
-      name: "Bài viết",
-      path: ROUTERS.USER.HOME,
-    },
-    {
-      name: "Liên hệ",
-      path: ROUTERS.USER.HOME,
-    },
-  ]);
+    { name: "Bài viết", path: ROUTERS.USER.POST },
+    { name: "Liên hệ", path: ROUTERS.USER.CONTACT },
+  ];
+
 
   return (
     <>
@@ -62,7 +50,10 @@ function Header() {
             <nav className="header__menu">
               <ul>
                 {menus?.map((menu, menuKey) => (
-                  <li key={menuKey} className={menuKey === 0 ? "active" : ""}>
+                  <li
+                    key={menuKey}
+                    className={location.pathname === menu.path ? "active" : ""}
+                  >
                     <Link to={menu?.path}>{menu?.name}</Link>
                     {menu.child && (
                       <ul className="header__menu_dropdown">
@@ -95,36 +86,28 @@ function Header() {
           </div>
         </div>
       </div>
+
       <div className="container">
         <div className="row hero__categories_container">
           <div className="col-lg-3 hero__categories">
             <div
               className="hero__categories_all"
-              onClick={() => setIsShow(!isShow)}
+              onClick={() => setIsShowCategory(!isShowCategory)}
             >
               <CiBoxList />
               Danh sách sản phẩm
             </div>
-            {isShow && (
-              <ul className={isShow ? "" : "hidden"}>
-                <li>
-                  <Link to="">Thịt tươi</Link>
-                </li>
-                <li>
-                  <Link to="">Rau củ</Link>
-                </li>
-                <li>
-                  <Link to="">Trái cây</Link>
-                </li>
-                <li>
-                  <Link to="">Nước trái cây</Link>
-                </li>
-                <li>
-                  <Link to="">Hải sản</Link>
-                </li>
+            {isShowCategory && (
+              <ul>
+                {categories.map((category, key) => (
+                  <li key={key}>
+                    <Link to={ROUTERS.USER.PRODUCT}>{category}</Link>
+                  </li>
+                ))}
               </ul>
             )}
           </div>
+
           <div className="col-lg-9 hero__search_container">
             <div className="hero__search">
               <div className="hero__search_form">
@@ -143,16 +126,22 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div className="hero__item">
-              <div className="hero__text">
-                <span>Trái cây tươi</span>
-                <h2>Rau quả <br /> sạch 100%</h2>
-                <p>Miễn phí giao hàng tận nơi</p>
-                <Link to="" className="primary-btn">
-                  Mua ngay
-                </Link>
+
+            {/* Chỉ hiện hero__item nếu là trang chủ */}
+            {isHomePage && (
+              <div className="hero__item">
+                <div className="hero__text">
+                  <span>Trái cây tươi</span>
+                  <h2>
+                    Rau quả <br /> sạch 100%
+                  </h2>
+                  <p>Miễn phí giao hàng tận nơi</p>
+                  <Link to="" className="primary-btn">
+                    Mua ngay
+                  </Link>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
