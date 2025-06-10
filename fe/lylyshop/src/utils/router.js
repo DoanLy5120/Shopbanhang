@@ -3,7 +3,9 @@ export const ROUTERS = {
         HOME: "/home",
         PROFILE:"/profile",
         PRODUCT:"/product",
+        DETAIL:"/product/chitiet/:id",
         POST: "/post",
-        CONTACT: "/contact"
+        CONTACT: "/contact",
+        CART: "/cart",
     }
 }

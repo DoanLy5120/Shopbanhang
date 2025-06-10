@@ -68,7 +68,7 @@ function HomePage() {
     },
   ];
   // danh sach san pham noi bat
-  const featProducts = {
+ const featProducts = {
     all: {
       title: "Toàn bộ",
       products: [
@@ -162,8 +162,8 @@ function HomePage() {
           name: "Xoài",
           price: 30000,
         },
-      ]
-    }
+      ],
+    },
   };
 
   const renderFeaturedProducts = (data) => {
@@ -177,7 +177,7 @@ function HomePage() {
       data[key].products.forEach((item, j) => {
         tabPanel.push(
           <div key={j} className="col-lg-3">
-            <ProductCard name={item.name} img={item.img} price={item.price}/>
+            <ProductCard name={item.name} img={item.img} price={item.price} />
           </div>
         );
       });
@@ -236,7 +236,6 @@ function HomePage() {
         </div>
       </div>
       {/* Banner End */}
-
     </>
   );
 }

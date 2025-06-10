@@ -1,7 +1,8 @@
 import { FaEye, FaShoppingCart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { generatePath, Link } from "react-router-dom";
 import { formatter } from "utils/formatter";
 import "./style.scss"
+import { ROUTERS } from "utils/router";
 function ProductCart({ img, name, price }) {
   return (
     <>
@@ -21,7 +22,7 @@ function ProductCart({ img, name, price }) {
         </div>
         <div className="featured__item_text">
           <h6>
-            <Link to="">{name}</Link>
+            <Link to={generatePath(ROUTERS.USER.DETAIL, {id:1})}>{name}</Link>
           </h6>
           <h5>{formatter(price)}</h5>
         </div>
