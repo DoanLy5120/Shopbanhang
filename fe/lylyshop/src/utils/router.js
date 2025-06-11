@@ -7,5 +7,6 @@ export const ROUTERS = {
         POST: "/post",
         CONTACT: "/contact",
         CART: "/cart",
+        CHECKOUT: "/pay"
     }
 }

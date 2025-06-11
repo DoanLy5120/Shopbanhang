@@ -3,7 +3,11 @@ import "./style.scss";
 import { formatter } from "utils/formatter";
 import { Quantity } from "component";
 import { FaWindowClose } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { ROUTERS } from "utils/router";
 function ShoppingCart() {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="container">
@@ -42,18 +46,30 @@ function ShoppingCart() {
               <h3>Mã giảm giá</h3>
               <div className="shopping__discount">
                 <input type="text" placeholder="Nhập mã giảm giá" />
-                <button type="button" className="button-submit">Áp dụng</button>
+                <button type="button" className="button-submit">
+                  Áp dụng
+                </button>
               </div>
             </div>
           </div>
           <div className="col-lg-6">
             <div className="shopping__checkout">
-                <h2>Tổng đơn</h2>
-                <ul>
-                    <li>Số lượng: <span>{2}</span></li>
-                    <li>Thành tiền: <span>{formatter(200000)}</span></li>
-                </ul>
-                <button className="button-submit" type="button">Thanh toán</button>
+              <h2>Tổng đơn</h2>
+              <ul>
+                <li>
+                  Số lượng: <span>{2}</span>
+                </li>
+                <li>
+                  Thành tiền: <span>{formatter(200000)}</span>
+                </li>
+              </ul>
+              <button
+                className="button-submit"
+                type="button"
+                onClick={() => navigate(ROUTERS.USER.CHECKOUT)}
+              >
+                Thanh toán
+              </button>
             </div>
           </div>
         </div>
